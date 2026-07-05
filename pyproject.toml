@@ -41,3 +41,6 @@ RemoteHTTPPrintServicePlugin = "inventree_brotherql.plugin:RemoteHTTPPrintServic
 [tool.setuptools.packages.find]
 include = ["inventree_brotherql*"]
 exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+inventree_brotherql = ["static/plugins/remote-http-print/*.js"]

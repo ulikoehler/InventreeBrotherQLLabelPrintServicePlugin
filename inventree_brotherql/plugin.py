@@ -74,6 +74,9 @@ class RemoteHTTPPrintServicePlugin(LabelPrintingMixin, SettingsMixin, InvenTreeP
     PUBLISH_DATE = "2025-07-05"
     MIN_VERSION = "0.16.0"
 
+    # Custom admin settings UI — a JS file that provides renderPluginSettings()
+    ADMIN_SOURCE = "endpoint_editor.js"
+
     # Run print_label inline in the background worker task (one task per batch).
     # This keeps the per-item upload+print+poll sequence simple and lets us
     # surface a useful error to the user via ValidationError on the same task.
@@ -281,6 +284,22 @@ class RemoteHTTPPrintServicePlugin(LabelPrintingMixin, SettingsMixin, InvenTreeP
                 "for this print job."
             ),
         )
+
+    # ------------------------------------------------------------------ #
+    # Admin context for custom settings UI
+    # ------------------------------------------------------------------ #
+    def get_admin_context(self) -> dict:
+        """Return context data for the custom admin settings UI."""
+        settings = {}
+        if hasattr(self, "get_settings_dict"):
+            settings = self.get_settings_dict()
+        else:
+            for key in self.SETTINGS:
+                settings[key] = self.get_setting(key)
+        return {
+            "slug": self.SLUG,
+            "settings": settings,
+        }
 
     # ------------------------------------------------------------------ #
     # Endpoint helpers

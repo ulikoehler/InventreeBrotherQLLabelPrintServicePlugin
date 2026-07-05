@@ -69,6 +69,10 @@ Then restart InvenTree and enable the plugin:
 
 All settings live under **Admin UI → Settings → Plugin Settings → Remote HTTP print service**.
 
+The plugin provides a **graphical endpoint editor** in the settings panel —
+add, remove, and edit named print endpoints (name + URL) without editing JSON
+manually. A dropdown lets you pick the default endpoint.
+
 | Setting | Default | Description |
 |---|---|---|
 | `ENDPOINTS` | `[]` *(required)* | JSON list of print endpoints. Each entry is `{"name": "...", "url": "..."}`, e.g. `[{"name": "Office", "url": "http://10.0.0.42:8080"}, {"name": "Warehouse", "url": "http://10.0.0.99:8080"}]` |

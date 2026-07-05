@@ -39,6 +39,14 @@ class TestPluginMetadata:
         assert plugin_instance.MIN_VERSION == "0.16.0"
         assert plugin_instance.BLOCKING_PRINT is True
 
+    def test_admin_source_set(self, plugin_instance):
+        assert plugin_instance.ADMIN_SOURCE == "endpoint_editor.js"
+
+    def test_get_admin_context(self, plugin_instance):
+        ctx = plugin_instance.get_admin_context()
+        assert ctx["slug"] == "remote-http-print"
+        assert "settings" in ctx
+
     def test_required_settings_present(self, plugin_instance):
         # ENDPOINTS is the one absolutely-required setting.
         assert "ENDPOINTS" in plugin_instance.SETTINGS

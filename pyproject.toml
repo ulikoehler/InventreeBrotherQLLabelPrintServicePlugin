@@ -43,4 +43,4 @@ include = ["inventree_remote_http_print*"]
 exclude = ["tests*"]
 
 [tool.setuptools.package-data]
-inventree_remote_http_print = ["static/plugins/remote-http-print/*.js"]
+inventree_remote_http_print = ["static/*.js"]

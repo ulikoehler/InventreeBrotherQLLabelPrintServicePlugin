@@ -69,7 +69,7 @@ class RemoteHTTPPrintServicePlugin(LabelPrintingMixin, SettingsMixin, InvenTreeP
     )
     AUTHOR = "InvenTree community"
     VERSION = PLUGIN_VERSION
-    WEBSITE = "https://github.com/ulikoehler/BrotherQLLabelPrintService"
+    WEBSITE = "https://github.com/ulikoehler/InventreeRemoteHTTPPrintPlugin"
     LICENSE = "MIT"
     PUBLISH_DATE = "2025-07-05"
     MIN_VERSION = "0.16.0"

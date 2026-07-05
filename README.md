@@ -30,9 +30,9 @@ on the InvenTree host.
 
 ```bash
 # From your InvenTree venv:
-pip install git+https://github.com/ulikoehler/InventreeBrotherQLLabelPrintServicePlugin.git
+pip install git+https://github.com/ulikoehler/InventreeRemoteHTTPPrintPlugin.git
 # (or, for local development:)
-pip install --editable /path/to/InventreeBrotherQLLabelPrintServicePlugin
+pip install --editable /path/to/InventreeRemoteHTTPPrintPlugin
 ```
 
 ### From the InvenTree web UI

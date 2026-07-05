@@ -34,7 +34,7 @@ def _set_endpoints(plugin, endpoints):
 class TestPluginMetadata:
     def test_basic_metadata(self, plugin_instance):
         assert plugin_instance.SLUG == "remote-http-print"
-        assert plugin_instance.NAME == "RemoteHTTPPrintServicePlugin"
+        assert plugin_instance.NAME == "Remote HTTP print"
         assert plugin_instance.VERSION == PLUGIN_VERSION
         assert plugin_instance.MIN_VERSION == "0.16.0"
         assert plugin_instance.BLOCKING_PRINT is True

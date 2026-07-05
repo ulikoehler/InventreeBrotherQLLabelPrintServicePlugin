@@ -39,7 +39,7 @@ pip install --editable /path/to/InventreeBrotherQLLabelPrintServicePlugin
 
 Go to **Admin UI → Settings → Plugin Settings → Install Plugin** and enter:
 
-- **Package Name**: *(empty)*
+- **Package Name**: `inventree-brotherql-plugin`
 - **Source URL**: `git+https://github.com/ulikoehler/InventreeBrotherQLLabelPrintServicePlugin.git`
 
 > **Important:** The Source URL **must** start with `git+https://`. Without the
@@ -47,17 +47,13 @@ Go to **Admin UI → Settings → Plugin Settings → Install Plugin** and enter
 > flag) instead of a VCS install source, and pip fails with
 > *"You must give at least one requirement to install"*.
 
-> **Leave Package Name empty** when using a `git+https://` Source URL. If you
-> fill in a Package Name, pip checks that it matches the `name` field in the
-> package's `pyproject.toml` (here: `inventree-brotherql-plugin`). Entering the
-> GitHub repository name instead will fail with *"inconsistent name"* /
-> *"No matching distribution found"*.
-
-Alternatively, you can specify both fields — but the Package Name **must**
-match the `name` in `pyproject.toml` exactly:
-
-- **Package Name**: `inventree-brotherql-plugin`
-- **Source URL**: `git+https://github.com/ulikoehler/InventreeBrotherQLLabelPrintServicePlugin.git`
+> **The Package Name must match the `name` field in the package's
+> `pyproject.toml` exactly** (here: `inventree-brotherql-plugin`). Do **not**
+> use the GitHub repository name — pip will reject it with *"inconsistent
+> name"* / *"No matching distribution found"*. Do **not** leave Package Name
+> empty either — InvenTree needs it to look up the installed package, save it
+> to `plugins.txt`, and reload the plugin registry. Without it, the package is
+> pip-installed but never appears in the plugin list.
 
 ![Correct InvenTree plugin install configuration](docs/InvenTree-Correct.png)
 

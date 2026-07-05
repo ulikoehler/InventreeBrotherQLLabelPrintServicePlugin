@@ -40,7 +40,7 @@ pip install --editable /path/to/InventreeBrotherQLLabelPrintServicePlugin
 Go to **Admin UI → Settings → Plugin Settings → Install Plugin** and enter:
 
 - **Package Name**: `inventree-remote-http-print-service`
-- **Source URL**: `git+https://github.com/ulikoehler/InventreeBrotherQLLabelPrintServicePlugin.git`
+- **Source URL**: `git+https://github.com/ulikoehler/InventreeRemoteHTTPPrintPlugin.git`
 
 > **Important:** The Source URL **must** start with `git+https://`. Without the
 > `git+` prefix, InvenTree treats the URL as a custom PyPI index (pip's `-i`

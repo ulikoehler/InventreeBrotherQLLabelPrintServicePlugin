@@ -237,7 +237,7 @@ class RemoteHTTPPrintServicePlugin(LabelPrintingMixin, SettingsMixin, InvenTreeP
             required=False,
             min_value=1,
             max_value=99,
-            default=None,
+            default=1,
             label=_("Copies"),
             help_text=_("Number of copies to print (1–99)."),
         )

@@ -1,4 +1,4 @@
-# inventree-brotherql-plugin
+# inventree-brotherql-service-plugin
 
 An [InvenTree](https://inventree.org) label-printing plugin that sends
 rendered labels to a running
@@ -39,7 +39,7 @@ pip install --editable /path/to/InventreeBrotherQLLabelPrintServicePlugin
 
 Go to **Admin UI → Settings → Plugin Settings → Install Plugin** and enter:
 
-- **Package Name**: `inventree-brotherql-plugin`
+- **Package Name**: `inventree-brotherql-service-plugin`
 - **Source URL**: `git+https://github.com/ulikoehler/InventreeBrotherQLLabelPrintServicePlugin.git`
 
 > **Important:** The Source URL **must** start with `git+https://`. Without the
@@ -48,7 +48,7 @@ Go to **Admin UI → Settings → Plugin Settings → Install Plugin** and enter
 > *"You must give at least one requirement to install"*.
 
 > **The Package Name must match the `name` field in the package's
-> `pyproject.toml` exactly** (here: `inventree-brotherql-plugin`). Do **not**
+> `pyproject.toml` exactly** (here: `inventree-brotherql-service-plugin`). Do **not**
 > use the GitHub repository name — pip will reject it with *"inconsistent
 > name"* / *"No matching distribution found"*. Do **not** leave Package Name
 > empty either — InvenTree needs it to look up the installed package, save it

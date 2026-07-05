@@ -12,6 +12,42 @@ export function renderPluginSettings(container, context) {
   const slug = ctx.slug || "remote-http-print";
   const settings = ctx.settings || {};
 
+  // -- Hide native form fields for ENDPOINTS and DEFAULT_ENDPOINT ---------
+  // The graphical editor below replaces these; hide the raw JSON / text
+  // inputs that InvenTree renders automatically from the SETTINGS dict.
+  function hideNativeFields() {
+    // InvenTree PUI renders settings as elements with data-setting-key
+    const selectors = [
+      '[data-setting-key="ENDPOINTS"]',
+      '[data-setting-key="DEFAULT_ENDPOINT"]',
+    ];
+    selectors.forEach((sel) => {
+      document.querySelectorAll(sel).forEach((el) => {
+        el.style.display = "none";
+      });
+    });
+
+    // Fallback: also hide by looking for labels containing the setting keys
+    // (covers older InvenTree versions or different rendering paths)
+    const labels = document.querySelectorAll("label, .setting-label, .label");
+    labels.forEach((label) => {
+      const text = (label.textContent || "").trim().toUpperCase();
+      if (text === "ENDPOINTS" || text === "DEFAULT_ENDPOINT" ||
+          text === "DEFAULT ENDPOINT") {
+        // Walk up to find the container row/wrapper
+        let row = label.closest("tr, .form-group, .setting-item, .paper, .card, div");
+        if (row && row !== container) {
+          row.style.display = "none";
+        }
+      }
+    });
+  }
+
+  hideNativeFields();
+  // Re-run after a delay in case the settings are rendered asynchronously
+  setTimeout(hideNativeFields, 500);
+  setTimeout(hideNativeFields, 1500);
+
   // Parse current endpoints
   let endpoints = [];
   try {
